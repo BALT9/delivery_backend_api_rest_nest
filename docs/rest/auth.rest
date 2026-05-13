@@ -1,0 +1,11 @@
+GET http://localhost:3000/auth/profile
+
+###
+POST http://localhost:3000/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "admin@mail.com",
+  "password": "12345678"
+}
