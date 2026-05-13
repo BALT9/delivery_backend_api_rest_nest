@@ -1,4 +1,5 @@
 GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkZGI4ZTIxYy1lYzQ2LTRhN2EtYmM3MC1jNzdhOWNhMjBkNzUiLCJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNzc4NzAxMjg1LCJleHAiOjE3Nzg3MDQ4ODV9.eDW7ne8AIalxsyL-mpOMKeOFTHF4lW9_kzvcB-VZK0s
 
 ###
 POST http://localhost:3000/users
