@@ -2,17 +2,23 @@ GET http://localhost:3000/products
 Authorization: Bearer
 
 ###
+GET http://localhost:3000/products?page=1&limit=5
+
+###
+GET http://localhost:3000/products?search=pi
+
+###
 POST http://localhost:3000/products
-Authorization: Bearer <YOUR_JWT_TOKEN>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkYjhlMjFjLWVjNDYtNGE3YS1iYzcwLWM3N2E5Y2EyMGQ3NSIsIm5hbWUiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4MDAwMDAyMCwiZXhwIjoxNzgwMDAzNjIwfQ.ezau7wSp89RlrnMzuK46kbMb1LxrrDVdDJmtEg4bYD0
 Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Hamburguesa Clásica",
-  "description": "Carne, queso, lechuga y tomate",
-  "price": 25.50,
-  "image": "https://example.com/burger.jpg",
-  "stock": 50,
+  "name": "Pizza Pepperoni",
+  "description": "Pizza con salsa de tomate, queso mozzarella y pepperoni",
+  "price": 45.00,
+  "image": "https://example.com/pizza-pepperoni.jpg",
+  "stock": 20,
   "is_available": true
 }
 

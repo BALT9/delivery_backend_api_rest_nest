@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { ProductQueryDto } from './dto/product-query.dto';
 
 @Injectable()
 export class ProductsService {
@@ -18,8 +19,30 @@ export class ProductsService {
     return this.productRepo.save(product);
   }
 
-  findAll() {
-    return this.productRepo.find();
+  async findAll(query: ProductQueryDto) {
+    const { page = 1, limit = 10, search } = query;
+
+    const qb = this.productRepo.createQueryBuilder('product');
+
+    // 🔎 SEARCH
+    if (search) {
+      qb.where(
+        'LOWER(product.name) LIKE LOWER(:search) OR LOWER(product.description) LIKE LOWER(:search)',
+        { search: `%${search}%` },
+      );
+    }
+
+    // 📄 PAGINATION
+    qb.skip((page - 1) * limit).take(limit);
+
+    const [data, total] = await qb.getManyAndCount();
+
+    return {
+      data,
+      total,
+      page,
+      lastPage: Math.ceil(total / limit),
+    };
   }
 
   async findOne(id: string) {
