@@ -1,5 +1,5 @@
 GET http://localhost:3000/auth/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkYjhlMjFjLWVjNDYtNGE3YS1iYzcwLWM3N2E5Y2EyMGQ3NSIsIm5hbWUiOiJhZG1pbiIsImlhdCI6MTc3OTk3NzUxNywiZXhwIjoxNzc5OTgxMTE3fQ.buw5MUisq39w695tK0WcRhIv0AvX9tGA8ZHkuK592aQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzMDIyNDEzLTlmNDktNDQ4Ni04YzI1LTZhNDAxYzY1MWQ3NiIsIm5hbWUiOiJKaG92YW5hIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzc5OTk3Mjk2LCJleHAiOjE3ODAwMDA4OTZ9.PZzAr0WE7XV9YcI2x1EFbQlFlZb-HcH6t1Qg5czlbEQ
 
 ###
 POST http://localhost:3000/auth/login
@@ -7,7 +7,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "jhova@mail.com",
+  "email": "admin@mail.com",
   "password": "12345678"
 }
 

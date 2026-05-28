@@ -18,7 +18,15 @@ export class AuthService {
   async signIn(
     email: string,
     password: string,
-  ): Promise<{ access_token: string }> {
+  ): Promise<{
+    access_token: string;
+    user: {
+      id: string;
+      name: string;
+      email: string;
+      role: string;
+    };
+  }> {
 
     try {
 
@@ -46,6 +54,7 @@ export class AuthService {
       const payload = {
         id: user.id,
         name: user.name,
+        role: user.role,
       };
 
       return {
@@ -53,6 +62,12 @@ export class AuthService {
           payload,
         ),
 
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+        },
       };
 
     } catch (error) {
