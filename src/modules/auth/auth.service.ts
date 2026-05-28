@@ -3,9 +3,13 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 
 import * as bcrypt from 'bcrypt';
+import { CreateUserDto } from '../users/dto/create-user.dto';
 
 @Injectable()
 export class AuthService {
+
+  private blacklistedTokens = new Set<string>();
+
   constructor(
     private usersService: UsersService,
     private jwtService: JwtService
@@ -40,14 +44,15 @@ export class AuthService {
       }
 
       const payload = {
-        sub: user.id,
-        username: user.name,
+        id: user.id,
+        name: user.name,
       };
 
       return {
         access_token: await this.jwtService.signAsync(
           payload,
         ),
+
       };
 
     } catch (error) {
@@ -60,5 +65,27 @@ export class AuthService {
         'Error al hacer login',
       );
     }
+  }
+
+  // Register
+  async register(createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto);
+  }
+
+  // Logout
+  logout(token: string) {
+    if (!token) {
+      throw new UnauthorizedException('Token no proporcionado');
+    }
+
+    this.blacklistedTokens.add(token);
+
+    return {
+      message: 'Logout exitoso',
+    };
+  }
+
+  isBlacklisted(token: string): boolean {
+    return this.blacklistedTokens.has(token);
   }
 }

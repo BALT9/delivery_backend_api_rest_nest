@@ -1,4 +1,5 @@
 GET http://localhost:3000/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkYjhlMjFjLWVjNDYtNGE3YS1iYzcwLWM3N2E5Y2EyMGQ3NSIsIm5hbWUiOiJhZG1pbiIsImlhdCI6MTc3OTk3NzUxNywiZXhwIjoxNzc5OTgxMTE3fQ.buw5MUisq39w695tK0WcRhIv0AvX9tGA8ZHkuK592aQ
 
 ###
 POST http://localhost:3000/auth/login
@@ -6,6 +7,18 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "email": "admin@mail.com",
+  "email": "jhova@mail.com",
   "password": "12345678"
+}
+
+###
+POST http://localhost:3000/auth/register
+Accept: application/json
+Content-Type: application/json
+
+{ 
+  "name": "Jhovana",
+  "email": "jhova@mail.com",
+  "password": "12345678",
+  "role": "CUSTOMER"
 }
