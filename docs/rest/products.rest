@@ -1,0 +1,39 @@
+GET http://localhost:3000/products
+Authorization: Bearer
+
+###
+POST http://localhost:3000/products
+Authorization: Bearer <YOUR_JWT_TOKEN>
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Hamburguesa Clásica",
+  "description": "Carne, queso, lechuga y tomate",
+  "price": 25.50,
+  "image": "https://example.com/burger.jpg",
+  "stock": 50,
+  "is_available": true
+}
+
+###
+GET http://localhost:3000/products/f946ae76-61af-484e-a851-52f6a4f27ed5
+Authorization: Bearer <YOUR_JWT_TOKEN>
+
+###
+PATCH http://localhost:3000/products/f946ae76-61af-484e-a851-52f6a4f27ed5
+Authorization: Bearer <YOUR_JWT_TOKEN>
+Content-Type: application/json
+
+{
+  "price": 27.00,
+  "stock": 40
+}
+
+###
+DELETE http://localhost:3000/products/
+Authorization: Bearer <YOUR_JWT_TOKEN>
+
+###
+PATCH http://localhost:3000/products/f946ae76-61af-484e-a851-52f6a4f27ed5/toggle
+Authorization: Bearer <YOUR_JWT_TOKEN>
