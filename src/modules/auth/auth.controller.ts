@@ -51,6 +51,7 @@ export class AuthController {
     }
 
     // Logout
+    @UseGuards(AuthGuard)
     @Post('logout')
     logout(@Request() req) {
         const token = req.headers.authorization?.split(' ')[1];

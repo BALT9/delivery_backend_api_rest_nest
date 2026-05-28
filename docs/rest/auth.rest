@@ -22,3 +22,7 @@ Content-Type: application/json
   "password": "12345678",
   "role": "CUSTOMER"
 }
+
+###
+POST http://localhost:3000/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkYjhlMjFjLWVjNDYtNGE3YS1iYzcwLWM3N2E5Y2EyMGQ3NSIsIm5hbWUiOiJhZG1pbiIsImlhdCI6MTc3OTk3NzUxNywiZXhwIjoxNzc5OTgxMTE3fQ.buw5MUisq39w695tK0WcRhIv0AvX9tGA8ZHkuK592aQ
