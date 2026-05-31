@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Order } from "src/modules/orders/entities/order.entity";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 export enum UserRole {
     CUSTOMER = 'CUSTOMER',
@@ -29,4 +30,7 @@ export class User {
 
     @CreateDateColumn({ type: 'timestamp' })
     created_at: Date;
+
+    @OneToMany(() => Order, (order) => order.user)
+    orders: Order[];
 }
