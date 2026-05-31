@@ -1,0 +1,37 @@
+###
+GET http://localhost:3000/orders/my-orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzMDIyNDEzLTlmNDktNDQ4Ni04YzI1LTZhNDAxYzY1MWQ3NiIsIm5hbWUiOiJKaG92YW5hIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzgwMjQzMzE0LCJleHAiOjE3ODAyNDY5MTR9.yWj7306TyuN5ZBTpiUmnrVj2QsJC_OosBTYp3-NTBf4
+
+###
+POST http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzMDIyNDEzLTlmNDktNDQ4Ni04YzI1LTZhNDAxYzY1MWQ3NiIsIm5hbWUiOiJKaG92YW5hIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzgwMjQzMzE0LCJleHAiOjE3ODAyNDY5MTR9.yWj7306TyuN5ZBTpiUmnrVj2QsJC_OosBTYp3-NTBf4
+
+{
+  "items": [
+    {
+      "productId": "f946ae76-61af-484e-a851-52f6a4f27ed5",
+      "quantity": 2
+    }
+  ]
+}
+
+# Lista de ordenes para admin 
+###
+GET http://localhost:3000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkYjhlMjFjLWVjNDYtNGE3YS1iYzcwLWM3N2E5Y2EyMGQ3NSIsIm5hbWUiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4MDI0MzY2NCwiZXhwIjoxNzgwMjQ3MjY0fQ.-31HhpbnfATaY95fLR0y45lzMKrbmbVd4CLesjpcOsc
+
+# Lista un pedido específico (ADMIN)
+###
+GET http://localhost:3000/orders/01de1cd9-6e36-4323-944a-8e1b4b8eb761
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkYjhlMjFjLWVjNDYtNGE3YS1iYzcwLWM3N2E5Y2EyMGQ3NSIsIm5hbWUiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4MDI0MzY2NCwiZXhwIjoxNzgwMjQ3MjY0fQ.-31HhpbnfATaY95fLR0y45lzMKrbmbVd4CLesjpcOsc
+
+###
+PATCH http://localhost:3000/orders/01de1cd9-6e36-4323-944a-8e1b4b8eb761/status
+Content-Type: application/json
+Authorization: Bearer ADMIN_TOKEN
+
+{
+  "status": "PREPARING"
+}
