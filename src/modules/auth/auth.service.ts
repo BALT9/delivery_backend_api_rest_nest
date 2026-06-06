@@ -84,7 +84,35 @@ export class AuthService {
 
   // Register
   async register(createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+    const user = await this.usersService.create(createUserDto);
+
+    const payload = {
+      id: user.id,
+      name: user.name,
+      role: user.role,
+    };
+
+    return {
+      access_token: await this.jwtService.signAsync(payload),
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    };
+  }
+
+  async findProfile(id: string) {
+    const user = await this.usersService.findOne(id);
+
+    if (!user) {
+      throw new UnauthorizedException('Usuario no encontrado');
+    }
+
+    const { password, ...profile } = user;
+
+    return profile;
   }
 
   // Logout

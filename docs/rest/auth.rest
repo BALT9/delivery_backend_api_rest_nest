@@ -1,8 +1,8 @@
-GET http://localhost:3000/auth/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzMDIyNDEzLTlmNDktNDQ4Ni04YzI1LTZhNDAxYzY1MWQ3NiIsIm5hbWUiOiJKaG92YW5hIiwicm9sZSI6IkNVU1RPTUVSIiwiaWF0IjoxNzc5OTk3Mjk2LCJleHAiOjE3ODAwMDA4OTZ9.PZzAr0WE7XV9YcI2x1EFbQlFlZb-HcH6t1Qg5czlbEQ
+GET http://localhost:3000/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRkYjhlMjFjLWVjNDYtNGE3YS1iYzcwLWM3N2E5Y2EyMGQ3NSIsIm5hbWUiOiJhZG1pbiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc4MDU5MTY4NSwiZXhwIjoxNzgwNTk1Mjg1fQ.gJwOw5pCZthNWa1g1j4OfMKH52WysFhy2OqD51DQrx4
 
 ###
-POST http://localhost:3000/auth/login
+POST http://localhost:3000/api/auth/login
 Accept: application/json
 Content-Type: application/json
 
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/auth/register
+POST http://localhost:3000/api/auth/register
 Accept: application/json
 Content-Type: application/json
 

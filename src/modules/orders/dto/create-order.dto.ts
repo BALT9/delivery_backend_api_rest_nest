@@ -6,6 +6,8 @@ import { CreateOrderItemDto } from './create-order-item.dto';
 
 export class CreateOrderDto {
 
+    userId?: string;
+
     @ApiProperty({
         description: 'Lista de productos del pedido (carrito)',
         type: [CreateOrderItemDto],

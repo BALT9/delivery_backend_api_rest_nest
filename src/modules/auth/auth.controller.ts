@@ -14,11 +14,13 @@ import { AuthService } from './auth.service';
 
 import { LoginAuthDto } from './dto/login-auth.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
+import { UsersService } from '../users/users.service';
 
 @Controller('auth')
 export class AuthController {
     constructor(
         private readonly authService: AuthService,
+        private readonly usersService: UsersService,
     ) { }
 
     // REGISTER
@@ -43,11 +45,10 @@ export class AuthController {
         );
     }
 
-    // PROFILE
     @UseGuards(AuthGuard)
     @Get('profile')
-    getProfile(@Request() req) {
-        return req.user;
+    async getProfile(@Request() req) {
+        return this.authService.findProfile(req.user.id);
     }
 
     // Logout

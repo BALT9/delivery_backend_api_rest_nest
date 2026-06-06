@@ -28,7 +28,13 @@ export class OrdersController {
   // =========================
   @Post()
   create(@Req() req, @Body() dto: CreateOrderDto) {
-    return this.ordersService.create(dto, req.user.id);
+
+    const userId =
+      req.user.role === UserRole.ADMIN && dto.userId
+        ? dto.userId
+        : req.user.id;
+
+    return this.ordersService.create(dto, userId);
   }
 
   // =========================
